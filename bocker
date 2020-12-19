@@ -6,7 +6,6 @@ btrfs_path='/var/bocker' && cgroups='cpu,cpuacct,memory';
 function bocker_check() {
 	btrfs subvolume list "$btrfs_path" | grep -qw "$1" && echo 0 || echo 1
 }
-
 function bocker_init() { #HELP Create an image from a directory:\nBOCKER init <directory>
 	uuid="img_$(shuf -i 42002-42254 -n 1)"
 	if [[ -d "$1" ]]; then
